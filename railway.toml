@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+buildCommand = "chmod +x ./mvnw && ./mvnw clean package -DskipTests"
+
+[deploy]
+startCommand = "java -jar target/smart_olam.jar"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 60
+
+[variables]
+PORT = "8080"
+JAVA_VERSION = "17"
+MAVEN_OPTS = "-DskipTests"
