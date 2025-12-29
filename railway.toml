@@ -3,9 +3,10 @@ builder = "nixpacks"
 buildCommand = "chmod +x ./mvnw && ./mvnw clean package -DskipTests"
 
 [deploy]
-startCommand = "java -jar target/smart_olam.jar"
+startCommand = "java -Dserver.port=${PORT} -Dserver.address=0.0.0.0 -jar target/smart_olam.jar"
 healthcheckPath = "/"
 healthcheckTimeout = 120
+healthcheckInterval = 30
 
 [variables]
 PORT = "8080"

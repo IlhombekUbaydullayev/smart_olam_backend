@@ -1,12 +1,10 @@
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://yamanote.proxy.rlwy.net:13654/railway
-    username: postgres
-    password: fHGEiRtJTCjxcsnlKKhMBnKQQiwvOYNs
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?sslmode=require
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
     hikari:
-      maximum-pool-size: 10
-      minimum-idle: 5
+      maximum-pool-size: 5
       connection-timeout: 30000
   jpa:
     hibernate:
@@ -15,8 +13,14 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-        jdbc:
-          lob:
-            non_contextual_creation: true
-    show-sql: true
+    show-sql: false
     open-in-view: false
+
+server:
+  port: ${PORT:8080}
+  address: 0.0.0.0  # ← MUHIM! Barcha interfacelarni tinglash
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
