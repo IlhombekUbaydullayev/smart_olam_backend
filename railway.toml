@@ -4,8 +4,8 @@ buildCommand = "chmod +x ./mvnw && ./mvnw clean package -DskipTests"
 
 [deploy]
 startCommand = "java -jar target/smart_olam.jar"
-healthcheckPath = "/api/health"
-healthcheckTimeout = 60
+healthcheckPath = "/"
+healthcheckTimeout = 120
 
 [variables]
 PORT = "8080"
