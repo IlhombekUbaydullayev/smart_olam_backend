@@ -32,7 +32,6 @@ public class Modul extends AuditEntity {
 
     @ManyToOne
     @JoinColumn(name = "course_id",nullable = false)
-    @JsonIgnore
     private Course course;
 
      @Enumerated(EnumType.STRING)
