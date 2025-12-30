@@ -1,26 +1,27 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?sslmode=require
-    username: ${PGUSER}
-    password: ${PGPASSWORD}
+    url: jdbc:postgresql://ballast.proxy.rlwy.net:48648/railway?sslmode=require
+    username: postgres
+    password: ESQhFbZZOQfbUVwXAeTXKmicYLuySVKV
+    driver-class-name: org.postgresql.Driver
     hikari:
-      maximum-pool-size: 5
       connection-timeout: 30000
+      maximum-pool-size: 5
+      
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: false  # Railway'da false qiling
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-    show-sql: false
-    open-in-view: false
 
 server:
-  port: ${PORT:8080}
-  address: 0.0.0.0  # ← MUHIM! Barcha interfacelarni tinglash
+  port: ${PORT:8080}  # Railway PORT variable uchun
+  address: 0.0.0.0
 
 logging:
   level:
     root: INFO
     org.springframework: INFO
+    org.hibernate.SQL: DEBUG
