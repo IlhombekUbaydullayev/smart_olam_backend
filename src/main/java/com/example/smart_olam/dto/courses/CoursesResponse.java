@@ -12,5 +12,5 @@ public class CoursesResponse extends GenericDto {
     public int duration; 
     // public List<CourseImageResponse> images;
     public String images;
-    public List<ModuleRespone> moduls;
+    // public List<ModuleRespone> moduls;
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.smart_olam.dto.modul.ModuleCreate;
+import com.example.smart_olam.dto.modul.ModulePubRespone;
 import com.example.smart_olam.dto.modul.ModuleRespone;
 import com.example.smart_olam.dto.modul.ModuleUpdate;
 import com.example.smart_olam.mapper.ModulMapper;
@@ -45,8 +46,8 @@ public class ModulService extends AbstractService<ModulRepository> implements Ge
 
     @Override
     public Long delete(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        repository.deleteById(id);
+        return id;
     }
 
     @Override
@@ -65,6 +66,11 @@ public class ModulService extends AbstractService<ModulRepository> implements Ge
     @Transactional(readOnly = true) 
     public List<ModuleRespone> getAllByCourseId(Long courseId){
         return mapper.toDto(repository.findAllByCourse_Id(courseId));
+    }
+
+     @Transactional(readOnly = true) 
+    public List<ModulePubRespone> getAllPubByCourseId(Long courseId){
+        return mapper.toPubDto(repository.findAllByCourse_Id(courseId));
     }
     
 }

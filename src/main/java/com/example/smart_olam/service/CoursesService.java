@@ -39,6 +39,9 @@ public class CoursesService extends AbstractService<CourseRepository> implements
 
         @Override
         public Long delete(Long id){
+            Course course = repository.findById(id).get();
+            course.setDeleted(true);
+            repository.save(course);
             return id;
         }
 
@@ -50,7 +53,7 @@ public class CoursesService extends AbstractService<CourseRepository> implements
         @Transactional(readOnly = true)
         @Override
         public List<CoursesResponse> getAll(){
-            return courseMapper.toDto(repository.findAll());
+            return courseMapper.toDto(repository.findAllByIsDeletedFalse());
         }
 
 }

@@ -8,7 +8,7 @@ import com.example.smart_olam.dto.courses.CoursesResponse;
 import com.example.smart_olam.dto.courses.CoursesUpdate;
 import com.example.smart_olam.model.Course;
 
-@Mapper(componentModel = "spring",nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+@Mapper(componentModel = "spring",uses = ModulMapper.class,nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface CourseMapper extends BaseMapper<
          Course,
          CoursesResponse,
