@@ -14,5 +14,12 @@ spring:
     open-in-view: false
   application:
     name: smart_olam
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+image:
+  upload-dir: uploads/images
 
 

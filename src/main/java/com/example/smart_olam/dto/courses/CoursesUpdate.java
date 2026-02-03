@@ -9,7 +9,7 @@ public class CoursesUpdate {
     public String status;
     public int moduleCount;
     public int duration; 
-    public String images;
+    public CoursesUpdate images;
     // public List<CourseImageResponse> images;
     public List<ModuleRespone> moduls;   
 }

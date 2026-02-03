@@ -1,9 +1,8 @@
 package com.example.smart_olam.dto.courses;
 
-import java.util.List;
 
 import com.example.smart_olam.dto.GenericDto;
-import com.example.smart_olam.dto.modul.ModuleRespone;
+import com.example.smart_olam.dto.courseImage.CourseImageResponse;
 
 public class CoursesResponse extends GenericDto {
     public String courseName;
@@ -11,6 +10,6 @@ public class CoursesResponse extends GenericDto {
     public int moduleCount;
     public int duration; 
     // public List<CourseImageResponse> images;
-    public String images;
+    public CourseImageResponse images;
     // public List<ModuleRespone> moduls;
 }

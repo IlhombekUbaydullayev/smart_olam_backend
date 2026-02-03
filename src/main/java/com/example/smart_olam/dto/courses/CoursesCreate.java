@@ -8,5 +8,4 @@ public class CoursesCreate implements BaseDto {
     public Status status = Status.ACTIVE;
     public int moduleCount;
     public int duration;
-    public String images;
 }

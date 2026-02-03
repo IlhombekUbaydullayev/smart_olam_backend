@@ -11,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,7 +32,8 @@ public class Course extends AuditEntity {
 
     // @OneToMany(mappedBy = "course",cascade = CascadeType.ALL,orphanRemoval = true)
     // private List<CourseImage> images;
-    private String images;
+    @OneToOne
+    private Image images;
 
     private boolean isDeleted = false;
     
