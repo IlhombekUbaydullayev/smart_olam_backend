@@ -1,5 +1,6 @@
 package com.example.smart_olam.model;
 
+
 import com.example.smart_olam.enums.Role;
 
 import jakarta.persistence.Entity;

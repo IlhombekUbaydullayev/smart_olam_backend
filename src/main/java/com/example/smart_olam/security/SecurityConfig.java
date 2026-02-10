@@ -27,6 +27,10 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/api/v1/courses/getAll").permitAll()
+                .requestMatchers("/api/v1/modul/getAll/**").permitAll()
+                .requestMatchers("/api/v1/lesson/getAll/**").permitAll()
+                .requestMatchers("/api/v1/video/getAll/**").permitAll()
+                .requestMatchers("/api/images/view/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()

@@ -33,12 +33,12 @@ public class CoursesController {
 
     public final CoursesService service;
 
-   @PostMapping(
+    @PostMapping(
     value = "/create",
     consumes = MediaType.MULTIPART_FORM_DATA_VALUE
 )
-   @PreAuthorize("hasRole('ADMIN')")
-public ResponseEntity<?> create(
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> create(
         @RequestPart("file") MultipartFile file,
         @RequestPart("course") CoursesCreate coursesCreate,
         HttpServletRequest request
@@ -53,6 +53,7 @@ public ResponseEntity<?> create(
         return ResponseEntity.ok(courses);
     } 
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Long> delete(@PathVariable Long id){
         return ResponseEntity.ok(service.delete(id));
